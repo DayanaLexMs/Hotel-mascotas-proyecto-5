@@ -17,6 +17,7 @@ import vista.JFReserva;
  *
  * @author USUARIO
  */
+
 public class ControladorHotel implements ActionListener{
 
     JFReserva frmReserva = new JFReserva ();
@@ -27,16 +28,53 @@ public class ControladorHotel implements ActionListener{
     public ControladorHotel(JFReserva frmReserva) {
         
         this.frmReserva = frmReserva;
+        this.frmReserva.btnRegistarDueñoMascota.addActionListener(this);
+        this.frmReserva.btnRegistrarCuidador.addActionListener(this);
+        this.frmReserva.btnRealizarReserva.addActionListener(this);
+        this.frmReserva.btnVerReservas.addActionListener(this);
         
     }
     
     @Override
-    public void ActionPerformed (ActionEvent e){
+    public void actionPerformed (ActionEvent e){
+        
+        if (e.getSource() == this.frmReserva.btnRegistarDueñoMascota){
+            registrarDueñoMascota ();
+        }
+        
+        if (e.getSource() == this.frmReserva.btnRegistrarCuidador){
+            registrarCuidador ();
+        }
+        
+        if (e.getSource() == this.frmReserva.btnRealizarReserva){
+            realizarReserva ();
+        }
+        
+    }
+    
+    public void registrarDueñoMascota (){
         
         
         
     }
     
+    public void registrarCuidador (){
+        
+        
+        
+    }
+    
+    public void realizarReserva (){
+        
+        
+        
+    }
+    
+    public void verReservas (){
+        
+        
+        
+    }
     
     
 }
