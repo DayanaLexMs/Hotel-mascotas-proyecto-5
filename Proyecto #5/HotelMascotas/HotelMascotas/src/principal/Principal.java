@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package principal;
+import vista.JFReserva;
+import controlador.ControladorHotel;
 
 /**
  *
@@ -13,7 +15,12 @@ public class Principal {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) {
+        
+        JFReserva frmReserva = new JFReserva ();
+        ControladorHotel cntrHotel = new ControladorHotel (frmReserva);
+        frmReserva.setVisible(true);
         // TODO code application logic here
     }
     
