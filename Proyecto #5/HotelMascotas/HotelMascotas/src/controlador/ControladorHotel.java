@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import modelo.Mascota;
 import modelo.Cuidador;
 import modelo.Fecha;
-import modelo.Persona;
 import modelo.Reserva;
 import modelo.Dueño;
 import vista.JFReserva;
@@ -125,14 +124,79 @@ public class ControladorHotel implements ActionListener{
     
     public void realizarReserva (){
         
+        //(Fecha fechaIngreso, int duracion, String serviciosAdicionales, Cuidador cuidador, Mascota mascota)
+        String fechaa = this.frmReserva.txtFechaIngreso.getText();
+        String nomCuidador = this.frmReserva.txtNombreC.getText();
+        String nomMascota = this.frmReserva.txtnombreM.getText();
+        String cedulaD = this.frmReserva.txtCedulaDR.getText();
         
+        if (fechaa.isEmpty()||this.frmReserva.txtDuracionR.getText().isEmpty()||nomCuidador.isEmpty()||nomMascota.isEmpty()||cedulaD.isEmpty()){
+            
+            this.frmReserva.txtAMostrar.setText("DATOS INCOMPLETOS \nSe ha cancelado el registro de la reserva");
+            
+        }
+        
+        else if (buscarMascota (cedulaD, nomMascota)== null){
+            this.frmReserva.txtAMostrar.setText("No se encontró a la mascota en la base de datos, por favor registre al dueño y a la mascota antes de realizar la reserva");
+        }
+        
+        else if (asignarCuidador(cedulaD, nomMascota)==null){
+            this.frmReserva.txtAMostrar.setText("No hay cuidadores disponibles que manejen la raza de su mascota");
+        }
+        
+        else {
+            
+            Fecha fechaIngreso = crearFecha (fechaa);
+            int duracion = Integer.parseInt(this.frmReserva.txtDuracionR.getText());
+            Cuidador cuidadorAsignado = asignarCuidador(cedulaD, nomMascota);
+            Mascota mascota = buscarMascota (cedulaD, nomMascota);
+            
+            Reserva r = new Reserva (fechaIngreso, duracion, mascota.getNescesidades(), cuidadorAsignado, mascota);
+            listaReservas.add(r);
+        }
         
     }
     
     public void verReservas (){
         
+        String cad = "";
+        
+        for (Reserva r: listaReservas){
+            cad += r.toString();
+        }
+        
+        this.frmReserva.txtAMostrar.setText(cad);
+        
+    }
+    
+    public Cuidador asignarCuidador (String cedulaD, String nomMascota){
+        
+        Cuidador cu = null;
+        Mascota m = buscarMascota (cedulaD, nomMascota);
+        String raza = m.getRaza();
+        
+        for (Cuidador c: listaCuidadores){
+            String [] aux = c.getRazas();
+            for (int i = 0; i <= aux.length; i++){
+                if (aux[i].equals(raza)){
+                    return c;
+                }
+            }
+        }
         
         
+        return cu;
+    }
+    
+    public Mascota buscarMascota (String cedulaD, String nomMascota){
+        
+        for (Dueño d: listaDueños){
+            if (d.getCedula().equals(cedulaD)&&d.getMascota().getNombre().equals(nomMascota)){
+                return d.getMascota();
+            }
+        }
+        
+        return null;
     }
     
     public boolean verificarCedula (String cedula){
@@ -142,6 +206,20 @@ public class ControladorHotel implements ActionListener{
             }
         }
         return true;
+    }
+    
+    public Fecha crearFecha (String fechaa){
+        
+        String [] fechas = fechaa.split("/");
+        int [] fecha = null;
+        
+        for (int i = 0; i<3; i++){
+            fecha [i] = Integer.parseInt(fechas [i]);
+        }
+        
+        Fecha f = new Fecha (fecha[0], fecha[1], fecha[2]);
+        
+        return f;
     }
     
     public void reiniciarCampos (){
@@ -159,6 +237,7 @@ public class ControladorHotel implements ActionListener{
         this.frmReserva.txtRazaM.setText("");
         this.frmReserva.txtTelefonoD.setText("");
         this.frmReserva.txtnombreM.setText("");
+        this.frmReserva.txtCedulaDR.setText("");
     }
     
     

@@ -70,6 +70,9 @@ public class JFReserva extends javax.swing.JFrame {
         txtNescesidadesM = new javax.swing.JTextField();
         btnVerReservas = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        txtCedulaDR = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,7 +124,7 @@ public class JFReserva extends javax.swing.JFrame {
 
         cmbNivelExpC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
 
-        jLabel14.setText("FechaIngreso");
+        jLabel14.setText("Fecha de ingreso");
 
         txtFechaIngreso.addActionListener(this::txtFechaIngresoActionPerformed);
 
@@ -163,6 +166,12 @@ public class JFReserva extends javax.swing.JFrame {
         btnVerReservas.addActionListener(this::btnVerReservasActionPerformed);
 
         jLabel23.setText("(Digite separadas por / )");
+
+        jLabel24.setText("(digite en formato DD/MM/YYYY)");
+
+        jLabel25.setText("Cedula del dueño");
+
+        txtCedulaDR.addActionListener(this::txtCedulaDRActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -254,13 +263,16 @@ public class JFReserva extends javax.swing.JFrame {
                                 .addComponent(jLabel17)
                                 .addComponent(jLabel16)
                                 .addComponent(jLabel15)
-                                .addComponent(jLabel14))
+                                .addComponent(jLabel14)
+                                .addComponent(jLabel24)
+                                .addComponent(jLabel25))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtCuidadorR, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtDuracionR, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtMascotaR, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtMascotaR, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCedulaDR, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addComponent(btnRealizarReserva)))
@@ -340,10 +352,13 @@ public class JFReserva extends javax.swing.JFrame {
                         .addComponent(btnVerReservas))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(txtFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel24)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
@@ -356,9 +371,13 @@ public class JFReserva extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
                             .addComponent(txtMascotaR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel25)
+                            .addComponent(txtCedulaDR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(24, 24, 24)
                         .addComponent(btnRealizarReserva)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -428,6 +447,10 @@ public class JFReserva extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRealizarReservaActionPerformed
 
+    private void txtCedulaDRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaDRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaDRActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -475,6 +498,8 @@ public class JFReserva extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -484,6 +509,7 @@ public class JFReserva extends javax.swing.JFrame {
     public javax.swing.JTextArea txtAMostrar;
     public javax.swing.JTextField txtCedulaC;
     public javax.swing.JTextField txtCedulaD;
+    public javax.swing.JTextField txtCedulaDR;
     public javax.swing.JTextField txtCuidadorR;
     public javax.swing.JTextField txtDuracionR;
     public javax.swing.JTextField txtEdadM;
