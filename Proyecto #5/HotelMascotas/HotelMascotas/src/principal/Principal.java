@@ -21,6 +21,7 @@ public class Principal {
         JFReserva frmReserva = new JFReserva ();
         ControladorHotel cntrHotel = new ControladorHotel (frmReserva);
         frmReserva.setVisible(true);
+        frmReserva.setLocationRelativeTo(null);
         // TODO code application logic here
     }
     

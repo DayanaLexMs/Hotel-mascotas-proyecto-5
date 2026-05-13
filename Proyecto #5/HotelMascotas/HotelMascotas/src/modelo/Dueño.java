@@ -12,6 +12,7 @@ public class Dueño extends Persona{
     
     private Mascota mascota;
     private Reserva reserva;
+    private String telefono;
 
     public Dueño() {
     }
@@ -22,9 +23,10 @@ public class Dueño extends Persona{
     }
 
     public Dueño(Mascota mascota, Reserva reserva, String nombre, String cedula, String telefono) {
-        super(nombre, cedula, telefono);
+        super(nombre, cedula);
         this.mascota = mascota;
         this.reserva = reserva;
+        this.telefono = telefono;
     }
 
     public Mascota getMascota() {

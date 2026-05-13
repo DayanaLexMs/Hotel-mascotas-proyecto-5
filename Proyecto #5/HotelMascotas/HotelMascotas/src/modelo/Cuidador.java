@@ -21,8 +21,8 @@ public class Cuidador extends Persona {
         this.razas = razas;
     }
 
-    public Cuidador(int nivelExperiencia, String[] razas, String nombre, String cedula, String telefono) {
-        super(nombre, cedula, telefono);
+    public Cuidador(int nivelExperiencia, String[] razas, String nombre, String cedula) {
+        super(nombre, cedula);
         this.nivelExperiencia = nivelExperiencia;
         this.razas = razas;
     }
@@ -57,14 +57,6 @@ public class Cuidador extends Persona {
 
     public void setCedula(String cedula) {
         this.cedula = cedula;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
     }
     
 }
